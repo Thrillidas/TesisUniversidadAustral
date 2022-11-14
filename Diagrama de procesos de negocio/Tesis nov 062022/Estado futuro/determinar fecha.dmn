@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_0wsn1es" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+  <decision id="Decision_0jsenau" name="Determinar fecha de entrega de pedido">
+    <informationRequirement id="InformationRequirement_0t0thop">
+      <requiredInput href="#InputData_082996p" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1p2mpt8">
+      <requiredInput href="#InputData_0npdwgc" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_107cx66">
+      <requiredDecision href="#Decision_14lj9qd" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0wuhedn">
+      <requiredDecision href="#Decision_1wucggd" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0iexq33">
+      <input id="Input_1" label="Pedidos pendientes">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" typeRef="string" />
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_082996p" name="Tiempo de fabricación estimado" />
+  <inputData id="InputData_0npdwgc" name="Imprevistos" />
+  <inputData id="InputData_0tzize7" name="Material Requerido" />
+  <decision id="Decision_1fgj9o1" name="Determinar materias primas requeridas">
+    <informationRequirement id="InformationRequirement_0ge3gwk">
+      <requiredInput href="#InputData_0tzize7" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_021dquh">
+      <requiredInput href="#InputData_1r6kep3" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_036msze">
+      <requiredInput href="#InputData_0ly77cx" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0m5dy1i">
+      <input id="InputClause_1aj011n" label="Material requerido">
+        <inputExpression id="LiteralExpression_0wgx40g" typeRef="string" />
+      </input>
+      <input id="InputClause_1e4f9au" label="Cantidad MP Req.">
+        <inputExpression id="LiteralExpression_1u3i3fq" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1frca8z" label="Cantidad MP Disp.">
+        <inputExpression id="LiteralExpression_1wonf85" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_145febw" label="Cantidad MP Adq." typeRef="double" />
+      <output id="OutputClause_1l8sere" label="Dias de entrega" typeRef="integer" />
+      <rule id="DecisionRule_1i1elcl">
+        <inputEntry id="UnaryTests_1wcf3ew">
+          <text>MP 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07tuom8">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_122vzg5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12ckwa5">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_06b5uye">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nq6qrf">
+        <inputEntry id="UnaryTests_0ejxiws">
+          <text>MP2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c4nopb">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ncfp7i">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fbbjnv">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19peajp">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_030kzl4">
+        <inputEntry id="UnaryTests_03dxnab">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01g0pcc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eh2zgn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1deu2tw">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05cq6rk">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1r6kep3" name="Cantidad material requerido" />
+  <inputData id="InputData_0ly77cx" name="Cantidad material disponible" />
+  <decision id="Decision_1uwib3q" name="Determinar materias primas disponibles" />
+  <decision id="Decision_1rdhjrg" name="Determinar materias primas a adquirir">
+    <informationRequirement id="InformationRequirement_0zjk1yr">
+      <requiredDecision href="#Decision_1fgj9o1" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0t4vppi">
+      <requiredDecision href="#Decision_1uwib3q" />
+    </informationRequirement>
+  </decision>
+  <decision id="Decision_14lj9qd" name="Determinar tiempo de entrega de materiales">
+    <informationRequirement id="InformationRequirement_0wr4y7t">
+      <requiredDecision href="#Decision_1rdhjrg" />
+    </informationRequirement>
+  </decision>
+  <decision id="Decision_1wucggd" name="Determinar tiempo de fabricación de producto" />
+  <decision id="Decision_1hs4nun" name="Determinar pasos para la fabricación del producto" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0jsenau">
+        <dc:Bounds height="80" width="180" x="1160" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1epce5j" dmnElementRef="InputData_082996p">
+        <dc:Bounds height="45" width="125" x="917" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0xd680s" dmnElementRef="InformationRequirement_0t0thop">
+        <di:waypoint x="1042" y="120" />
+        <di:waypoint x="1140" y="120" />
+        <di:waypoint x="1160" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1qccnx7" dmnElementRef="InputData_0npdwgc">
+        <dc:Bounds height="45" width="125" x="1467" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1c6j95z" dmnElementRef="InformationRequirement_1p2mpt8">
+        <di:waypoint x="1467" y="120" />
+        <di:waypoint x="1360" y="120" />
+        <di:waypoint x="1340" y="120" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_19pxro7" dmnElementRef="InputData_0tzize7">
+        <dc:Bounds height="45" width="125" x="157" y="898" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0fj3kcw" dmnElementRef="InformationRequirement_0ge3gwk">
+        <di:waypoint x="220" y="898" />
+        <di:waypoint x="405" y="810" />
+        <di:waypoint x="405" y="790" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17b2wv9" dmnElementRef="Decision_1fgj9o1">
+        <dc:Bounds height="80" width="180" x="360" y="710" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1sadveg" dmnElementRef="InputData_1r6kep3">
+        <dc:Bounds height="45" width="125" x="387" y="898" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1m9wozo" dmnElementRef="InputData_0ly77cx">
+        <dc:Bounds height="45" width="125" x="677" y="898" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0xp13dh" dmnElementRef="Decision_1uwib3q">
+        <dc:Bounds height="80" width="180" x="860" y="710" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ufnrfx" dmnElementRef="InformationRequirement_021dquh">
+        <di:waypoint x="450" y="898" />
+        <di:waypoint x="450" y="810" />
+        <di:waypoint x="450" y="790" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_09rauaq" dmnElementRef="InformationRequirement_036msze">
+        <di:waypoint x="740" y="898" />
+        <di:waypoint x="495" y="810" />
+        <di:waypoint x="495" y="790" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1kk6e5b" dmnElementRef="Decision_1rdhjrg">
+        <dc:Bounds height="80" width="180" x="580" y="520" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1xe4epg" dmnElementRef="InformationRequirement_0zjk1yr">
+        <di:waypoint x="450" y="710" />
+        <di:waypoint x="640" y="620" />
+        <di:waypoint x="640" y="600" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_09mhye9" dmnElementRef="InformationRequirement_0t4vppi">
+        <di:waypoint x="950" y="710" />
+        <di:waypoint x="700" y="620" />
+        <di:waypoint x="700" y="600" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1adam3m" dmnElementRef="Decision_14lj9qd">
+        <dc:Bounds height="80" width="180" x="580" y="380" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1unz7ov" dmnElementRef="InformationRequirement_0wr4y7t">
+        <di:waypoint x="670" y="520" />
+        <di:waypoint x="670" y="480" />
+        <di:waypoint x="670" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0ct6zlo" dmnElementRef="InformationRequirement_107cx66">
+        <di:waypoint x="670" y="380" />
+        <di:waypoint x="1220" y="180" />
+        <di:waypoint x="1220" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_184skm3" dmnElementRef="Decision_1wucggd">
+        <dc:Bounds height="80" width="180" x="1590" y="330" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0a23gb5" dmnElementRef="InformationRequirement_0wuhedn">
+        <di:waypoint x="1680" y="330" />
+        <di:waypoint x="1280" y="180" />
+        <di:waypoint x="1280" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1co481m" dmnElementRef="Decision_1hs4nun">
+        <dc:Bounds height="80" width="180" x="1670" y="500" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

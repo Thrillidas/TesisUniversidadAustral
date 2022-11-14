@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_14mb3kd" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+  <decision id="Decision_1hq8eqm" name="Determinar fecha de entrega de pedido">
+    <informationRequirement id="InformationRequirement_19nv0uq">
+      <requiredDecision href="#Decision_13o7b24" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1a4oub8" hitPolicy="COLLECT" aggregation="SUM">
+      <input id="InputClause_1bjvcis" label="cargaTrabajo">
+        <inputExpression id="LiteralExpression_1iqni2z" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1253lji" label="entregaMateriales" biodi:width="192">
+        <inputExpression id="LiteralExpression_0p83owt" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0y36sq4" label="tiempoFabricacion" biodi:width="192">
+        <inputExpression id="LiteralExpression_0jehopq" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1r8839g" label="Total" typeRef="double" />
+      <rule id="DecisionRule_0d5suso">
+        <inputEntry id="UnaryTests_0egmes5">
+          <text>10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ew7yfc">
+          <text>10</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o8khfs">
+          <text>5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r09nwh">
+          <text>25</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04djyuw">
+        <inputEntry id="UnaryTests_15qw562">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1545rtc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_036cspg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v3r0c0">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_13o7b24" name="Determinar Tiempo de fabricación de pedido">
+    <decisionTable id="DecisionTable_0rmvgo8">
+      <input id="InputClause_1co1di1" label="EntregaMateriales">
+        <inputExpression id="LiteralExpression_09uvvxy" typeRef="string" />
+      </input>
+      <input id="InputClause_0wfhbkh" label="TiempoPedido">
+        <inputExpression id="LiteralExpression_1e72gxb" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1mxlhqf" typeRef="string" />
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0am4iuy" dmnElementRef="Decision_1hq8eqm">
+        <dc:Bounds height="80" width="180" x="160" y="110" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1yttr0n" dmnElementRef="Decision_13o7b24">
+        <dc:Bounds height="80" width="180" x="160" y="290" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0af2pu4" dmnElementRef="InformationRequirement_19nv0uq">
+        <di:waypoint x="250" y="290" />
+        <di:waypoint x="250" y="210" />
+        <di:waypoint x="250" y="190" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

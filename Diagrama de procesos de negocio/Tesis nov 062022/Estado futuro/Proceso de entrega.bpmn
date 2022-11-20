@@ -65,10 +65,6 @@
       <bpmn:incoming>Flow_0e57l2l</bpmn:incoming>
       <bpmn:outgoing>Flow_0wxdvi0</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1wmgc5l" name="Volver a sala de ventas">
-      <bpmn:incoming>Flow_0wxdvi0</bpmn:incoming>
-      <bpmn:outgoing>Flow_1l7oraz</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_03cwt0t" name="No" sourceRef="Gateway_04sdvqc" targetRef="Activity_03zbekn" />
     <bpmn:sequenceFlow id="Flow_09zpgcc" sourceRef="Activity_0rsvvyb" targetRef="Gateway_04sdvqc" />
     <bpmn:sequenceFlow id="Flow_0ihs677" sourceRef="Activity_0r0cki4" targetRef="Activity_0rsvvyb" />
@@ -82,6 +78,10 @@
     <bpmn:endEvent id="Event_134c30p" name="Pedido&#10;entregado">
       <bpmn:incoming>Flow_01mwv4t</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:task id="Activity_1wmgc5l" name="Volver a sala de ventas">
+      <bpmn:incoming>Flow_0wxdvi0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l7oraz</bpmn:outgoing>
+    </bpmn:task>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1532b7z">

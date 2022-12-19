@@ -51,13 +51,6 @@
         <bpmn:targetRef>Property_1k7verl</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:userTask id="Activity_1j3ns44" name="Registrar encargo en el sistema">
-      <bpmn:incoming>Flow_11wo9dr</bpmn:incoming>
-      <bpmn:outgoing>Flow_0z334bq</bpmn:outgoing>
-      <bpmn:dataOutputAssociation id="DataOutputAssociation_0qtyeta">
-        <bpmn:targetRef>DataStoreReference_1bgmr93</bpmn:targetRef>
-      </bpmn:dataOutputAssociation>
-    </bpmn:userTask>
     <bpmn:dataStoreReference id="DataStoreReference_1bgmr93" name="BB.DD Ventas" />
     <bpmn:intermediateThrowEvent id="Event_0y86yxm" name="Proceso de entrega">
       <bpmn:incoming>Flow_15ytju8</bpmn:incoming>
@@ -70,6 +63,13 @@
       <bpmn:timerEventDefinition id="TimerEventDefinition_0wvyfwa" />
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="Flow_15ytju8" sourceRef="Event_1i6qwnv" targetRef="Event_0y86yxm" />
+    <bpmn:subProcess id="Activity_1j3ns44" name="Registrar encargo en el sistema">
+      <bpmn:incoming>Flow_11wo9dr</bpmn:incoming>
+      <bpmn:outgoing>Flow_0z334bq</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0qtyeta">
+        <bpmn:targetRef>DataStoreReference_1bgmr93</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:subProcess>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0dk1z1l">
@@ -129,9 +129,6 @@
       <bpmndi:BPMNShape id="Activity_0l5xdrf_di" bpmnElement="Activity_0l5xdrf">
         <dc:Bounds x="640" y="350" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0b45s8e_di" bpmnElement="Activity_1j3ns44">
-        <dc:Bounds x="440" y="350" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_1bgmr93_di" bpmnElement="DataStoreReference_1bgmr93">
         <dc:Bounds x="565" y="305" width="50" height="50" />
         <bpmndi:BPMNLabel>
@@ -149,6 +146,9 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="847" y="255" width="87" height="27" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0swqude_di" bpmnElement="Activity_1j3ns44">
+        <dc:Bounds x="440" y="350" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_04vht17_di" bpmnElement="Participant_04vht17" isHorizontal="true">
         <dc:Bounds x="180" y="78" width="850" height="60" />

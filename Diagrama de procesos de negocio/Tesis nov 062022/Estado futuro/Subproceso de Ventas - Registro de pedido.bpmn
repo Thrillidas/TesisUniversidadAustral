@@ -154,14 +154,14 @@
           <dc:Bounds x="1165" y="285" width="72" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Participant_15nf409_di" bpmnElement="Participant_1wvevye" isHorizontal="true">
-        <dc:Bounds x="134" y="80" width="1106" height="60" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1fduyzz_di" bpmnElement="Participant_0j09m91" isHorizontal="true">
         <dc:Bounds x="134" y="440" width="506" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1w5emm5_di" bpmnElement="Participant_1w5emm5" isHorizontal="true">
         <dc:Bounds x="650" y="440" width="590" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_15nf409_di" bpmnElement="Participant_1wvevye" isHorizontal="true">
+        <dc:Bounds x="134" y="80" width="1106" height="60" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1q0q76m_di" bpmnElement="Flow_1q0q76m">
         <di:waypoint x="1080" y="300" />
